@@ -16,22 +16,23 @@ cur.execute("select id, name, age from people")
 rows = cur.fetchall()
 
 
-def search(rows, id):  
+def search(rows, student_name):  
     for r in rows:  
-        if (r[0] == id):  
+        if (r[1] == student_name):  
             return r
     return -1  
 
-id = 4
-l = len(rows)   
+
+student_name = input("Enter the student name you want to find: ")
+
   
-result = search(rows, id)
-r = result
+result = search(rows, student_name)
+
 if(result == -1):  
     print("ID not found in Database!")  
 else:  
     print("Details found: ") 
-    print (f"id {r[0]} name {r[1]} age {r[2]}")
+    print (f"id {result[0]} name {result[1]} age {result[2]}")
 
 
     
